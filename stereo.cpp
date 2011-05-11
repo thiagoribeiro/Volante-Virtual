@@ -256,8 +256,9 @@ void init_options(int options) {
 		cvNamedWindow("bgremove_left",0);
 		cvNamedWindow("bgremove_right",0);
 	}
-	cvNamedWindow("filtro_background",0);
+
 	cvNamedWindow("AVG",0);
+	cvNamedWindow("disparidade_mascara",0);
 
 	cvWaitKey(5);
 
@@ -384,10 +385,6 @@ int processaCUDA(int width, int height,unsigned char* imLeft,unsigned char* imRi
 	    	//cvNot(frame22,frame22);
 
 
-
-
-
-
 	    	cvShowImage("disp_left",frame11);
 	    	cvShowImage("disp_right",frame22);
 
@@ -412,6 +409,7 @@ int processaCUDA(int width, int height,unsigned char* imLeft,unsigned char* imRi
 	    		cvSaveImage("and.jpg",frameA);
 	    	}
 	    	cvCopy(frameA,disparidade);
+
 	    	cvShowImage("AVG",frameA);
 
 	    	cvReleaseImage(&frameA);
@@ -449,17 +447,19 @@ int processar(int width, int height,IplImage* img1, IplImage* img2, int options,
 	//cvErode(img1,img1,NULL,1);
 	//cvErode(img2,img2,NULL,1);
 
-	disparidade = cvCreateImage(cvSize(width,height),IPL_DEPTH_8U,3);
+
 
 	cvSmooth(img1, img1, CV_GAUSSIAN, 7, 7 );
 	cvSmooth(img2, img2, CV_GAUSSIAN, 7, 7 );
+	//cvEqualizeHist( img2, img2 );
+	IplImage *imageA, *imageB;
+	imageA = cvCreateImage(cvSize(width,height),IPL_DEPTH_8U,1);
+	imageB = cvCreateImage(cvSize(width,height),IPL_DEPTH_8U,1);
 
 	if(has_option(options,SHOW_WINDOW_GAUSSIAN) || 1) {
 		/*THRESHOLD*/
 
-		IplImage *imageA, *imageB;
-		imageA = cvCreateImage(cvSize(width,height),IPL_DEPTH_8U,1);
-		imageB = cvCreateImage(cvSize(width,height),IPL_DEPTH_8U,1);
+
 
 		//cvCvtColor(img1,imageA,CV_RGB2GRAY);
 		//cvCvtColor(img2,imageB,CV_RGB2GRAY);
@@ -467,12 +467,12 @@ int processar(int width, int height,IplImage* img1, IplImage* img2, int options,
 		cvCopy(img2,imageB);
 
 		cvAbsDiff(imageA, thresLeft, imageA);
-		cvThreshold(imageA,imageA, 70, 255,CV_THRESH_BINARY);
+		cvThreshold(imageA,imageA, 60, 255,CV_THRESH_BINARY);
 
 
 		cvAbsDiff(imageB, thresRight, imageB);
 		//cvSaveImage("diferenca.png",imageB);
-		cvThreshold(imageB,imageB, 70, 255,CV_THRESH_BINARY);
+		cvThreshold(imageB,imageB, 60, 255,CV_THRESH_BINARY);
 
 
 		cvShowImage("bgremove_left",imageA);
@@ -504,9 +504,26 @@ int processar(int width, int height,IplImage* img1, IplImage* img2, int options,
 		imRight = (unsigned char*)(img2->imageData);
 		processaCUDA(width, height, imLeft, imRight, options, eye_distance);
 
-		cvCvtColor(disparidade,img1,CV_RGB2GRAY);
-		cvCopy(img1,img1,thresLeft);
-		cvShowImage("filtro_background",img1);
+
+		IplImage* frameA = cvCreateImage(cvSize(width-eye_distance,height),IPL_DEPTH_8U,1);
+		IplImage* frameB = cvCreateImage(cvSize(width-eye_distance,height),IPL_DEPTH_8U,1);
+		IplImage* frameC = cvCreateImage(cvSize(width-eye_distance,height),IPL_DEPTH_8U,3);
+
+
+		cvSetImageROI(imageA,cvRect(eye_distance,0,width,height));
+		cvCopy(imageA,frameA);
+		cvResetImageROI(imageA);
+		cvSetImageROI(imageB,cvRect(0,0,width-eye_distance,height));
+		cvCopy(imageB,frameB);
+		cvResetImageROI(imageB);
+		cvOr(frameA,frameB,frameA);
+		cvCopy(disparidade,frameC,frameA);
+		cvErode(frameC,frameC,NULL,1);
+		cvSmooth(frameC, frameC, CV_GAUSSIAN, 7, 7 );
+
+		//cvCvtColor(frameC,frameA,CV_RGB2GRAY);
+
+		cvShowImage("disparidade_mascara",frameC);
 	}
 
 	if(has_option(options,PROCESS_CV)) {
@@ -576,19 +593,15 @@ int alimenta_threshold(CvCapture* capture1, CvCapture* capture2, int width, int 
 
 
 		if(true) {
-			cvCvtColor(frame1,frame1,CV_RGB2HSV);
-			cvCvtColor(frame2,frame2,CV_RGB2HSV);
+			//cvCvtColor(frame1,frame1,CV_RGB2HSV);
+			//cvCvtColor(frame2,frame2,CV_RGB2HSV);
 
 			cvConvertScale(frame1,frametmp);
-			cvCvtPixToPlane(frametmp,hue,sat,val,0);
-			//cvEqualizeHist( hue, thresLeft );
-			cvCopy( hue, thresLeft );
+
+			cvCvtPixToPlane(frametmp,thresLeft,sat,val,0);
 
 			cvConvertScale(frame2,frametmp);
-			cvCvtPixToPlane(frametmp,hue,sat,val,0);
-			//cvEqualizeHist( hue, thresRight );
-			cvCopy( hue, thresRight );
-
+			cvCvtPixToPlane(frametmp,thresRight,hue,val,0);
 		}
 		else {
 			cvConvertScale(frame1,frametmp);
@@ -621,8 +634,8 @@ int alimenta_threshold(CvCapture* capture1, CvCapture* capture2, int width, int 
 		frame2 = cvQueryFrame(capture2);
 
 		if(true) {
-			cvCvtColor(frame1,frame1,CV_RGB2HSV);
-			cvCvtColor(frame2,frame2,CV_RGB2HSV);
+			//cvCvtColor(frame1,frame1,CV_RGB2HSV);
+			//cvCvtColor(frame2,frame2,CV_RGB2HSV);
 
 
 			cvConvertScale(frame1,frametmp);
@@ -668,6 +681,7 @@ int rodaCameras(int device1,  int device2,int width, int height, int options, in
 	    capture1 = cvCaptureFromCAM(device1);
 	    capture2 = cvCaptureFromCAM(device2);
 
+	    disparidade = cvCreateImage(cvSize(width-eye_distance,height),IPL_DEPTH_8U,3);
 
 	    IplImage *frame1, *frame2;
 	    IplImage *frame11, *frame22;
@@ -679,7 +693,6 @@ int rodaCameras(int device1,  int device2,int width, int height, int options, in
 	    cvSetCaptureProperty(capture1,CV_CAP_PROP_FRAME_HEIGHT,height);
 	    cvSetCaptureProperty(capture2,CV_CAP_PROP_FRAME_WIDTH,width);
 	    cvSetCaptureProperty(capture2,CV_CAP_PROP_FRAME_HEIGHT,height);
-
 
 
 	    //threshold aqui
@@ -716,23 +729,20 @@ int rodaCameras(int device1,  int device2,int width, int height, int options, in
 			cvCvtPixToPlane(frame1,hue,sat,val,0);
 
 			//cvAdd(sat,val,frame11);
-			//cvEqualizeHist( hue, frame11 );
-
 			cvCopy(hue,frame11);
 
 			cvCvtPixToPlane(frame2,hue,sat,val,0);
 
 			//cvAdd(sat,val,frame22);
 			cvCopy(hue,frame22);
-			//cvEqualizeHist( hue, frame22 );
 			//cvSub(sat,val,frame22);
 
 			//cvCvtColor(frame1,frame11,CV_BGR2GRAY);
 			//cvCvtColor(frame2,frame22,CV_BGR2GRAY);
 
 
-		    //cvSaveImage("./left-capture.ppm",frame11);
-		    //cvSaveImage("./right-capture.ppm",frame22);
+		    cvSaveImage("./left-capture.ppm",frame11);
+		    cvSaveImage("./right-capture.ppm",frame22);
 
 		    if(!umavez) {
 		    	//printf("\n\n%d\n\n",deteriminarAlinhamento(width, height,frame11, frame22,8));
@@ -848,7 +858,7 @@ int main() {
 	//rodaVideo("04p.divx",800,600,PROCESS_CUDA + RUN_ONLINE + SHOW_WINDOW_ORIGINAL + SHOW_WINDOW_NORM + SHOW_WINDOW_DISPARITY,10);
 
 	//rodaImagens("./img/Aloe/view1-1.pgm","./img/Aloe/view5-1.pgm",427,370,PROCESS_CUDA + RUN_ONE_FRAME + SHOW_ON_FILE + SHOW_ALL_WINDOWS,32);
-	rodaCameras(0,1,320,240,PROCESS_CUDA + RUN_ONLINE + SHOW_WINDOW_ORIGINAL + SHOW_WINDOW_NORM + SHOW_WINDOW_DISPARITY + EXEC_NOISE_FILTER,27);
+	rodaCameras(0,1,640,480,PROCESS_CUDA + RUN_ONLINE + SHOW_WINDOW_ORIGINAL + SHOW_WINDOW_NORM + SHOW_WINDOW_DISPARITY + EXEC_NOISE_FILTER,27);
 
 	cvWaitKey(0);
 	return 1;
