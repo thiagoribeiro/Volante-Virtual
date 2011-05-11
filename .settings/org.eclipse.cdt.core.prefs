@@ -1,0 +1,7 @@
+#Mon Jan 03 13:27:29 BRST 2011
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.config.gnu.exe.release.59330536/PATH/delimiter=\:
+environment/project/cdt.managedbuild.config.gnu.exe.release.59330536/PATH/operation=append
+environment/project/cdt.managedbuild.config.gnu.exe.release.59330536/PATH/value=/usr/local/cuda/bin
+environment/project/cdt.managedbuild.config.gnu.exe.release.59330536/append=true
+environment/project/cdt.managedbuild.config.gnu.exe.release.59330536/appendContributed=true
