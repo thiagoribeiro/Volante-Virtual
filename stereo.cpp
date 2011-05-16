@@ -861,8 +861,8 @@ int main() {
 	//rodaImagens("./img/Aloe/view1-1.pgm","./img/Aloe/view5-1.pgm",427,370,PROCESS_CUDA + RUN_ONE_FRAME + SHOW_ON_FILE + SHOW_ALL_WINDOWS,32);
 	rodaCameras(0,1,640,480,PROCESS_CUDA + RUN_ONLINE + SHOW_WINDOW_ORIGINAL + SHOW_WINDOW_NORM + SHOW_WINDOW_DISPARITY + EXEC_NOISE_FILTER,27);
 
-	//Origem* o = new Cameras();
-	//o->getFrame(1);
+	Origem* o = new Cameras();
+	o->getFrame(1);
 	cvWaitKey(0);
 	return 1;
 }
