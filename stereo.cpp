@@ -859,10 +859,16 @@ int main() {
 	//rodaVideo("04p.divx",800,600,PROCESS_CUDA + RUN_ONLINE + SHOW_WINDOW_ORIGINAL + SHOW_WINDOW_NORM + SHOW_WINDOW_DISPARITY,10);
 
 	//rodaImagens("./img/Aloe/view1-1.pgm","./img/Aloe/view5-1.pgm",427,370,PROCESS_CUDA + RUN_ONE_FRAME + SHOW_ON_FILE + SHOW_ALL_WINDOWS,32);
-	rodaCameras(0,1,640,480,PROCESS_CUDA + RUN_ONLINE + SHOW_WINDOW_ORIGINAL + SHOW_WINDOW_NORM + SHOW_WINDOW_DISPARITY + EXEC_NOISE_FILTER,27);
+	//rodaCameras(0,1,640,480,PROCESS_CUDA + RUN_ONLINE + SHOW_WINDOW_ORIGINAL + SHOW_WINDOW_NORM + SHOW_WINDOW_DISPARITY + EXEC_NOISE_FILTER,27);
 
-	Origem* o = new Cameras();
-	o->getFrame(1);
+	EyeEngine* ee = new EyeEngine();
+	ee->set_dimensao(320,240);
+	ee->set_eye_distance(13);
+	ee->set_run_mode(1);
+	ee->init();
+	ee->rodar();
+
+
 	cvWaitKey(0);
 	return 1;
 }
