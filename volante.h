@@ -194,17 +194,18 @@ private:
 	int unir_imagens() {
 		return 1;
 	}
-	int _disparidade2imagem_left() {
+	bool _disparity2image(IplImage *imagem, const float *disp )
+	{
 	    float dmin,dmax,d;
+	    int x,y;
 	    int w = this->width;
 	    int h = this->height;
-	    int x,y;
-	    printf(">>> %d %d <<<\n\n",w,h);
+
 	    dmin = FLT_MAX;
 	    dmax = -FLT_MAX;
 	    for(y=0; y<h; y++) {
 	        for(x=0; x<w; x++) {
-	            d = this->disp_left[y*w+x];
+	            d = disp[y*w+x];
 	            if(d>250)
 	                continue;
 	            if(d<dmin)
@@ -217,7 +218,7 @@ private:
 	    for(y=0; y<h; y++) {
 	        for(x=0; x<w; x++) {
 	            unsigned char r,g,b;
-	            d = this->disp_left[y*w+x];
+	            d = disp[y*w+x];
 	            if(d>250) {
 	                r = 0;
 	                g = 0;
@@ -226,59 +227,22 @@ private:
 	                r = (unsigned char)(255*d/(dmax-dmin));
 	                g = b = r;
 	            }
-
-	            this->disparidade_left->imageData[3*(y*w+x)]   = (char) r;
-	            this->disparidade_left->imageData[3*(y*w+x)+1] = (char) g;
-	            this->disparidade_left->imageData[3*(y*w+x)+2] = (char) b;
+	            //out.write((char*)&r,1);
+	            //out.write((char*)&g,1);
+	            //out.write((char*)&b,1);
+	            //corrigir
+	            imagem->imageData[3*(y*w+x)]   = (char) r;
+	            imagem->imageData[3*(y*w+x)+1] = (char) g;
+	            imagem->imageData[3*(y*w+x)+2] = (char) b;
 
 	        }
 	    }
 	    return true;
 	}
-	int _disparidade2imagem_right() {
-		    float dmin,dmax,d;
-		    int w = this->width;
-		    int h = this->height;
-		    int x,y;
 
-		    dmin = FLT_MAX;
-		    dmax = -FLT_MAX;
-		    for(y=0; y<h; y++) {
-		        for(x=0; x<w; x++) {
-		            d = this->disp_right[y*w+x];
-		            if(d>250)
-		                continue;
-		            if(d<dmin)
-		                dmin = d;
-		            if(d>dmax)
-		                dmax = d;
-		        }
-		    }
-
-		    for(y=0; y<h; y++) {
-		        for(x=0; x<w; x++) {
-		            unsigned char r,g,b;
-		            d = this->disp_right[y*w+x];
-		            if(d>250) {
-		                r = 0;
-		                g = 0;
-		                b = 0;
-		            } else {
-		                r = (unsigned char)(255*d/(dmax-dmin));
-		                g = b = r;
-		            }
-
-		            this->disparidade_right->imageData[3*(y*w+x)]   = (char) r;
-		            this->disparidade_right->imageData[3*(y*w+x)+1] = (char) g;
-		            this->disparidade_right->imageData[3*(y*w+x)+2] = (char) b;
-
-		        }
-		    }
-		    return true;
-		}
 	int disparidade2imagem() {
-		this->_disparidade2imagem_left();
-		this->_disparidade2imagem_right();
+		this->_disparity2image(this->disparidade_left,this->disp_left);
+		this->_disparity2image(this->disparidade_right,this->disp_right);
 		return 1;
 	}
 
@@ -320,8 +284,11 @@ public:
 		this->disp_left = new float[this->width*this->height];
 		this->disp_right = new float[this->width*this->height];
 
-		this->disparidade_left = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->disparidade_right = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
+		this->disparidade_left = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,3);
+		this->disparidade_right = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,3);
+
+		this->bg_disp_left = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
+		this->bg_disp_right = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
 
 		stereoInit(this->width,this->height);
 
@@ -351,6 +318,9 @@ public:
 		cvReleaseImage(&this->passo_right);
 		cvReleaseImage(&this->frameLeftHSV);
 		cvReleaseImage(&this->frameRightHSV);
+		cvReleaseImage(&this->bg_disp_left);
+		cvReleaseImage(&this->bg_disp_right);
+
 		this->pseye->free();
 		this->bgsLeft->free();
 		this->bgsRight->free();
@@ -398,12 +368,17 @@ public:
 					this->estereo_cuda();
 
 					this->disparidade2imagem();
-					/*
+
 					cvCvtColor(this->disparidade_left,this->bg_disp_left,CV_RGB2GRAY);
 					cvCvtColor(this->disparidade_right,this->bg_disp_right,CV_RGB2GRAY);
 
+					cvShowImage("disp_left",this->bg_disp_left);
+					cvShowImage("disp_right",this->bg_disp_right);
+
 					this->bg_disp_left = this->bgsLeft->filter(this->bg_disp_left);
 					this->bg_disp_left = this->bgsRight->filter(this->bg_disp_right);
+					//cvShowImage("disp_left",this->bg_disp_left);
+					//cvShowImage("disp_right",this->bg_disp_right);
 
 					cvSetImageROI(this->bg_disp_left,cvRect(this->eye_distance,0,this->width,this->height));
 					cvCopy(this->bg_disp_left,this->bg_disp_left);
@@ -413,7 +388,7 @@ public:
 					cvResetImageROI(this->bg_disp_right);
 					cvShowImage("AVG",this->bg_disp_left);
 					this->estereo_posprocessamento1();
-					*/
+
 				}
 
 				key = cvWaitKey( 3 );
