@@ -1,0 +1,461 @@
+11:40:04: Creating resource group General
+11:40:04: Creating resource group Internal
+11:40:04: Creating resource group Autodetect
+11:40:04: SceneManagerFactory for type 'DefaultSceneManager' registered.
+11:40:04: Registering ResourceManager for type Material
+11:40:04: Registering ResourceManager for type Mesh
+11:40:04: Registering ResourceManager for type Skeleton
+11:40:04: MovableObjectFactory for type 'ParticleSystem' registered.
+11:40:04: OverlayElementFactory for type Panel registered.
+11:40:04: OverlayElementFactory for type BorderPanel registered.
+11:40:04: OverlayElementFactory for type TextArea registered.
+11:40:04: Registering ResourceManager for type Font
+11:40:04: ArchiveFactory for archive type FileSystem registered.
+11:40:04: ArchiveFactory for archive type Zip registered.
+11:40:04: DDS codec registering
+11:40:04: FreeImage version: 3.10.0
+11:40:04: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+11:40:04: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,sgi,exr,j2k,j2c,jp2
+11:40:04: Registering ResourceManager for type HighLevelGpuProgram
+11:40:04: Registering ResourceManager for type Compositor
+11:40:04: MovableObjectFactory for type 'Entity' registered.
+11:40:04: MovableObjectFactory for type 'Light' registered.
+11:40:04: MovableObjectFactory for type 'BillboardSet' registered.
+11:40:04: MovableObjectFactory for type 'ManualObject' registered.
+11:40:04: MovableObjectFactory for type 'BillboardChain' registered.
+11:40:04: MovableObjectFactory for type 'RibbonTrail' registered.
+11:40:04: Loading library /usr/lib64/RenderSystem_GL
+11:40:04: Installing plugin: GL RenderSystem
+11:40:04: OpenGL Rendering Subsystem created.
+11:40:04: Plugin successfully installed
+11:40:04: Loading library /usr/lib64/Plugin_OctreeSceneManager
+11:40:04: Installing plugin: Octree & Terrain Scene Manager
+11:40:04: Plugin successfully installed
+11:40:04: Loading library /usr/lib64/Plugin_ParticleFX
+11:40:04: Installing plugin: ParticleFX
+11:40:04: Particle Emitter Type 'Point' registered
+11:40:04: Particle Emitter Type 'Box' registered
+11:40:04: Particle Emitter Type 'Ellipsoid' registered
+11:40:04: Particle Emitter Type 'Cylinder' registered
+11:40:04: Particle Emitter Type 'Ring' registered
+11:40:04: Particle Emitter Type 'HollowEllipsoid' registered
+11:40:04: Particle Affector Type 'LinearForce' registered
+11:40:04: Particle Affector Type 'ColourFader' registered
+11:40:04: Particle Affector Type 'ColourFader2' registered
+11:40:04: Particle Affector Type 'ColourImage' registered
+11:40:04: Particle Affector Type 'ColourInterpolator' registered
+11:40:04: Particle Affector Type 'Scaler' registered
+11:40:04: Particle Affector Type 'Rotator' registered
+11:40:04: Particle Affector Type 'DirectionRandomiser' registered
+11:40:04: Particle Affector Type 'DeflectorPlane' registered
+11:40:04: Plugin successfully installed
+11:40:04: Loading library /usr/lib64/Plugin_BSPSceneManager
+11:40:04: Installing plugin: BSP Scene Manager
+11:40:04: Plugin successfully installed
+11:40:04: Loading library /usr/lib64/Plugin_CgProgramManager
+11:40:04: Installing plugin: Cg Program Manager
+11:40:04: Plugin successfully installed
+11:40:04: *-*-* OGRE Initialising
+11:40:04: *-*-* Version 1.7.3 (Cthugha)
+11:40:04: Creating resource group Bootstrap
+11:40:04: Added resource location '/home/aluno/Downloads/ogre_src_v1-7-3/ogreaddons/ogreode/demos/Media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+11:40:04: Added resource location '/home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/Samples/Media/fonts' of type 'FileSystem' to resource group 'General'
+11:40:04: Added resource location '/home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/Samples/Media/materials/programs' of type 'FileSystem' to resource group 'General'
+11:40:04: Added resource location '/home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/Samples/Media/materials/scripts' of type 'FileSystem' to resource group 'General'
+11:40:04: Added resource location '/home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/Samples/Media/materials/textures' of type 'FileSystem' to resource group 'General'
+11:40:04: Added resource location '/home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/Samples/Media/models' of type 'FileSystem' to resource group 'General'
+11:40:04: Added resource location '/home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/Samples/Media/particle' of type 'FileSystem' to resource group 'General'
+11:40:04: Creating resource group OgreOde
+11:40:04: Added resource location '/home/aluno/Downloads/ogre_src_v1-7-3/ogreaddons/ogreode/demos/Media' of type 'FileSystem' to resource group 'OgreOde'
+11:40:06: CPU Identifier & Features
+11:40:06: -------------------------
+11:40:06:  *   CPU ID: GenuineIntel: Intel(R) Core(TM)2 Quad  CPU   Q8200  @ 2.33GHz
+11:40:06:  *      SSE: yes
+11:40:06:  *     SSE2: yes
+11:40:06:  *     SSE3: yes
+11:40:06:  *      MMX: yes
+11:40:06:  *   MMXEXT: yes
+11:40:06:  *    3DNOW: no
+11:40:06:  * 3DNOWEXT: no
+11:40:06:  *     CMOV: yes
+11:40:06:  *      TSC: yes
+11:40:06:  *      FPU: yes
+11:40:06:  *      PRO: yes
+11:40:06:  *       HT: no
+11:40:06: -------------------------
+11:40:06: ******************************
+*** Starting GLX Subsystem ***
+******************************
+11:40:06: GLRenderSystem::_createRenderWindow "OGRE Render Window", 640x480 windowed  miscParams: FSAA=0 displayFrequency=51 MHz gamma=No vsync=No 
+11:40:06: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource GLX_icon.png in resource group General or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:06: GLXWindow::create used FBConfigID = 117
+11:40:06: GL_VERSION = 3.3.0 NVIDIA 260.19.26
+11:40:06: GL_VENDOR = NVIDIA Corporation
+11:40:06: GL_RENDERER = GeForce 9600 GT/PCI/SSE2
+11:40:06: GL_EXTENSIONS = GL_ARB_blend_func_extended GL_ARB_color_buffer_float GL_ARB_compatibility GL_ARB_copy_buffer GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_depth_texture GL_ARB_draw_buffers GL_ARB_draw_elements_base_vertex GL_ARB_draw_instanced GL_ARB_ES2_compatibility GL_ARB_explicit_attrib_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_geometry_shader4 GL_ARB_get_program_binary GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_imaging GL_ARB_instanced_arrays GL_ARB_map_buffer_range GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_occlusion_query2 GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_provoking_vertex GL_ARB_robustness GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_separate_shader_objects GL_ARB_shader_bit_encoding GL_ARB_shader_objects GL_ARB_shading_language_100 GL_ARB_shadow GL_ARB_sync GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_compression GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_float GL_ARB_texture_mirrored_repeat GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_swizzle GL_ARB_timer_query GL_ARB_transpose_matrix GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARB_window_pos GL_ATI_draw_buffers GL_ATI_texture_float GL_ATI_texture_mirror_once GL_S3_s3tc GL_EXT_texture_env_add GL_EXT_abgr GL_EXT_bgra GL_EXT_bindable_uniform GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_compiled_vertex_array GL_EXT_Cg_shader GL_EXT_depth_bounds_test GL_EXT_direct_state_access GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_draw_range_elements GL_EXT_fog_coord GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXTX_framebuffer_mixed_formats GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_geometry_shader4 GL_EXT_gpu_program_parameters GL_EXT_gpu_shader4 GL_EXT_multi_draw_arrays GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_packed_pixels GL_EXT_pixel_buffer_object GL_EXT_point_parameters GL_EXT_provoking_vertex GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_separate_shader_objects GL_EXT_separate_specular_color GL_EXT_shadow_funcs GL_EXT_stencil_two_side GL_EXT_stencil_wrap GL_EXT_texture3D GL_EXT_texture_array GL_EXT_texture_buffer_object GL_EXT_texture_compression_latc GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_cube_map GL_EXT_texture_edge_clamp GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_lod GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp GL_EXT_texture_object GL_EXT_texture_shared_exponent GL_EXT_texture_sRGB GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_vertex_array GL_EXT_vertex_array_bgra GL_IBM_rasterpos_clip GL_IBM_texture_mirrored_repeat GL_KTX_buffer_region GL_NV_blend_square GL_NV_conditional_render GL_NV_copy_depth_to_color GL_NV_copy_image GL_NV_depth_buffer_float GL_NV_depth_clamp GL_NV_explicit_multisample GL_NV_fence GL_NV_float_buffer GL_NV_fog_distance GL_NV_fragment_program GL_NV_fragment_program_option GL_NV_fragment_program2 GL_NV_framebuffer_multisample_coverage GL_NV_geometry_shader4 GL_NV_gpu_program4 GL_NV_half_float GL_NV_light_max_exponent GL_NV_multisample_coverage GL_NV_multisample_filter_hint GL_NV_occlusion_query GL_NV_packed_depth_stencil GL_NV_parameter_buffer_object GL_NV_parameter_buffer_object2 GL_NV_pixel_data_range GL_NV_point_sprite GL_NV_primitive_restart GL_NV_register_combiners GL_NV_register_combiners2 GL_NV_shader_buffer_load GL_NV_texgen_reflection GL_NV_texture_barrier GL_NV_texture_compression_vtc GL_NV_texture_env_combine4 GL_NV_texture_expand_normal GL_NV_texture_multisample GL_NV_texture_rectangle GL_NV_texture_shader GL_NV_texture_shader2 GL_NV_texture_shader3 GL_NV_transform_feedback GL_NV_vdpau_interop GL_NV_vertex_array_range GL_NV_vertex_array_range2 GL_NV_vertex_buffer_unified_memory GL_NV_vertex_program GL_NV_vertex_program1_1 GL_NV_vertex_program2 GL_NV_vertex_program2_option GL_NV_vertex_program3 GL_NVX_conditional_render GL_NVX_gpu_memory_info GL_SGIS_generate_mipmap GL_SGIS_texture_lod GL_SGIX_depth_texture GL_SGIX_shadow GL_SUN_slice_accum 
+11:40:06: Supported GLX extensions: GLX_EXT_visual_info GLX_EXT_visual_rating GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGI_video_sync GLX_SGI_swap_control GLX_EXT_swap_control GLX_EXT_texture_from_pixmap GLX_ARB_create_context GLX_ARB_create_context_profile GLX_EXT_create_context_es2_profile GLX_ARB_create_context_robustness GLX_ARB_multisample GLX_NV_float_buffer GLX_ARB_fbconfig_float GLX_EXT_framebuffer_sRGB GLX_ARB_get_proc_address 
+11:40:06: ***************************
+11:40:06: *** GL Renderer Started ***
+11:40:06: ***************************
+11:40:06: Registering ResourceManager for type GpuProgram
+11:40:06: GLSL support detected
+11:40:06: GL: Using GL_EXT_framebuffer_object for rendering to textures (best)
+11:40:06: FBO PF_UNKNOWN depth/stencil support: D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_L8 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_A8 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_A4L4 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_BYTE_LA depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_R5G6B5 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_B5G6R5 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_A1R5G5B5 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_R8G8B8 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_B8G8R8 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_A8R8G8B8 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_B8G8R8A8 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_A2R10G10B10 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_A2B10G10R10 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_FLOAT16_RGB depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_FLOAT16_RGBA depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_FLOAT32_RGB depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_FLOAT32_RGBA depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_X8R8G8B8 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_X8B8G8R8 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_SHORT_RGBA depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_R3G3B2 depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_FLOAT16_R depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:06: FBO PF_FLOAT32_R depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:07: FBO PF_FLOAT16_GR depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:07: FBO PF_FLOAT32_GR depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:07: FBO PF_SHORT_RGB depth/stencil support: D0S0 D16S0 D24S0 D32S0 Packed-D24S8 
+11:40:07: [GL] : Valid FBO targets PF_UNKNOWN PF_L8 PF_A8 PF_A4L4 PF_BYTE_LA PF_R5G6B5 PF_B5G6R5 PF_A1R5G5B5 PF_R8G8B8 PF_B8G8R8 PF_A8R8G8B8 PF_B8G8R8A8 PF_A2R10G10B10 PF_A2B10G10R10 PF_FLOAT16_RGB PF_FLOAT16_RGBA PF_FLOAT32_RGB PF_FLOAT32_RGBA PF_X8R8G8B8 PF_X8B8G8R8 PF_SHORT_RGBA PF_R3G3B2 PF_FLOAT16_R PF_FLOAT32_R PF_FLOAT16_GR PF_FLOAT32_GR PF_SHORT_RGB 
+11:40:07: RenderSystem capabilities
+11:40:07: -------------------------
+11:40:07: RenderSystem Name: OpenGL Rendering Subsystem
+11:40:07: GPU Vendor: nvidia
+11:40:07: Device Name: GeForce 9600 GT/PCI/SSE2
+11:40:07: Driver Version: 3.3.0.0
+11:40:07:  * Fixed function pipeline: yes
+11:40:07:  * Hardware generation of mipmaps: yes
+11:40:07:  * Texture blending: yes
+11:40:07:  * Anisotropic texture filtering: yes
+11:40:07:  * Dot product texture operation: yes
+11:40:07:  * Cube mapping: yes
+11:40:07:  * Hardware stencil buffer: yes
+11:40:07:    - Stencil depth: 8
+11:40:07:    - Two sided stencil support: yes
+11:40:07:    - Wrap stencil values: yes
+11:40:07:  * Hardware vertex / index buffers: yes
+11:40:07:  * Vertex programs: yes
+11:40:07:  * Number of floating-point constants for vertex programs: 1024
+11:40:07:  * Number of integer constants for vertex programs: 0
+11:40:07:  * Number of boolean constants for vertex programs: 0
+11:40:07:  * Fragment programs: yes
+11:40:07:  * Number of floating-point constants for fragment programs: 512
+11:40:07:  * Number of integer constants for fragment programs: 0
+11:40:07:  * Number of boolean constants for fragment programs: 0
+11:40:07:  * Geometry programs: yes
+11:40:07:  * Number of floating-point constants for geometry programs: 512
+11:40:07:  * Number of integer constants for geometry programs: 0
+11:40:07:  * Number of boolean constants for geometry programs: 0
+11:40:07:  * Supported Shader Profiles: arbfp1 arbvp1 fp20 fp30 fp40 glsl gp4gp gp4vp gpu_gp gpu_vp nvgp4 vp30 vp40
+11:40:07:  * Texture Compression: yes
+11:40:07:    - DXT: yes
+11:40:07:    - VTC: yes
+11:40:07:    - PVRTC: no
+11:40:07:  * Scissor Rectangle: yes
+11:40:07:  * Hardware Occlusion Query: yes
+11:40:07:  * User clip planes: yes
+11:40:07:  * VET_UBYTE4 vertex element type: yes
+11:40:07:  * Infinite far plane projection: yes
+11:40:07:  * Hardware render-to-texture: yes
+11:40:07:  * Floating point textures: yes
+11:40:07:  * Non-power-of-two textures: yes
+11:40:07:  * Volume textures: yes
+11:40:07:  * Multiple Render Targets: 8
+11:40:07:    - With different bit depths: yes
+11:40:07:  * Point Sprites: yes
+11:40:07:  * Extended point parameters: yes
+11:40:07:  * Max Point Size: 63.375
+11:40:07:  * Vertex texture fetch: yes
+11:40:07:  * Number of world matrices: 0
+11:40:07:  * Number of texture units: 32
+11:40:07:  * Stencil buffer depth: 8
+11:40:07:  * Number of vertex blend matrices: 0
+11:40:07:    - Max vertex textures: 32
+11:40:07:    - Vertex textures shared: yes
+11:40:07:  * Render to Vertex Buffer : yes
+11:40:07:  * GL 1.5 without VBO workaround: no
+11:40:07:  * Frame Buffer objects: yes
+11:40:07:  * Frame Buffer objects (ARB extension): no
+11:40:07:  * Frame Buffer objects (ATI extension): no
+11:40:07:  * PBuffer support: yes
+11:40:07:  * GL 1.5 without HW-occlusion workaround: no
+11:40:07: Registering ResourceManager for type Texture
+11:40:07: DefaultWorkQueue('Root') initialising on thread 0x18984d0.
+11:40:07: DefaultWorkQueue('Root')::WorkerFunc - thread 0x1b53840 starting.
+11:40:07: DefaultWorkQueue('Root')::WorkerFunc - thread 0x19836d0 starting.
+11:40:07: DefaultWorkQueue('Root')::WorkerFunc - thread 0x1b4f380 starting.
+11:40:07: DefaultWorkQueue('Root')::WorkerFunc - thread 0x1b62030 starting.
+11:40:07: Particle Renderer Type 'billboard' registered
+11:40:07: SceneManagerFactory for type 'OctreeSceneManager' registered.
+11:40:07: SceneManagerFactory for type 'TerrainSceneManager' registered.
+11:40:07: SceneManagerFactory for type 'BspSceneManager' registered.
+11:40:07: Registering ResourceManager for type BspLevel
+11:40:07: Parsing scripts for resource group Autodetect
+11:40:07: Finished parsing scripts for resource group Autodetect
+11:40:07: Parsing scripts for resource group Bootstrap
+11:40:07: Parsing script OgreCore.material
+11:40:07: Parsing script OgreProfiler.material
+11:40:07: Parsing script Ogre.fontdef
+11:40:07: Parsing script OgreDebugPanel.overlay
+11:40:07: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with 5 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+11:40:07: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+11:40:07: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with 5 generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
+11:40:07: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with 5 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+11:40:07: Parsing script OgreLoadingPanel.overlay
+11:40:07: Finished parsing scripts for resource group Bootstrap
+11:40:07: Parsing scripts for resource group General
+11:40:07: Finished parsing scripts for resource group General
+11:40:07: Parsing scripts for resource group Internal
+11:40:07: Finished parsing scripts for resource group Internal
+11:40:07: Parsing scripts for resource group OgreOde
+11:40:07: Parsing script landscape.material
+11:40:07: Parsing script gun.material
+11:40:07: Parsing script door.material
+11:40:07: Parsing script jeep_body.material
+11:40:07: Parsing script crate.material
+11:40:07: Parsing script autoterraintexture.material
+11:40:07: Compiler error: number expected in autoterraintexture.material(43): incorrect float constant declaration
+11:40:07: Parsing script cube.material
+11:40:07: Parsing script scooby_body.material
+11:40:07: Parsing script cubeBlue.material
+11:40:07: Parsing script plane.material
+11:40:07: Parsing script zombie.material
+11:40:07: Compiler error: reference to a non existing object in zombie.material(9)
+11:40:07: Compiler error: reference to a non existing object in zombie.material(21)
+11:40:07: Parsing script cubeRed.material
+11:40:07: Parsing script kk3d.material
+11:40:07: Parsing script tail_rotor.material
+11:40:07: Parsing script jeep_wheell.material
+11:40:07: Parsing script racingcircuit.material
+11:40:07: Parsing script main_rotor.material
+11:40:07: Parsing script capsule.material
+11:40:07: Parsing script ball.material
+11:40:07: Parsing script target.material
+11:40:07: Parsing script jeep_wheelr.material
+11:40:07: Parsing script scooby_wheel.material
+11:40:07: Parsing script Examples.material
+11:40:07: Compiler error: reference to a non existing object in Examples.material(253)
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource hdr.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/MorningSkyBoxHDRfp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource hdr.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource hdr.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/MorningCubeMapHDRfp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource hdr.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: Compiler error: reference to a non existing object in Examples.material(772)
+11:40:07: Compiler error: reference to a non existing object in Examples.material(784)
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/GrassWaverVp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(835): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(837): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(839): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(840): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(841): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(843): setting of constant failed
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/GrassWaverTexVp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(855): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(856): setting of constant failed
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/GrassWaverAmbientVp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(867): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(868): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(869): setting of constant failed
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/GrassWaverAmbientFp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/GrassWaverFp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/GrassWaverCasterVp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(899): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(900): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(901): setting of constant failed
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/GrassWaverCasterFp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/GrassWaverReceiverVp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(922): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(923): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(924): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(926): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(928): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(929): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(931): setting of constant failed
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/GrassWaverReceiverFp encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Grass.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(945): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(946): setting of constant failed
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(947): setting of constant failed
+11:40:07: Compiler error: reference to a non existing object in Examples.material(1281)
+11:40:07: Compiler error: reference to a non existing object in Examples.material(1473)
+11:40:07: Compiler error: reference to a non existing object in Examples.material(1508)
+11:40:07: Compiler error: reference to a non existing object in Examples.material(1617)
+11:40:07: Compiler error: reference to a non existing object in Examples.material(1622)
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Example_Basic.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/ShowTangents_v encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Example_Basic.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(1696): setting of constant failed
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Example_Basic.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/ShowNormals_v encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Example_Basic.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(2:InvalidParametersException): Named constants have not been initialised, perhaps a compile error. in GpuProgramParameters::_findNamedConstantDefinition at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreGpuProgramParams.cpp (line 1425)
+11:40:07: Compiler error: invalid parameters in Examples.material(1706): setting of constant failed
+11:40:07: Compiler error: reference to a non existing object in Examples.material(1716)
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Example_Basic.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/ShowUV_p encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Example_Basic.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Example_Basic.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: High-level program Examples/ShowUVdir3D encountered an error during loading and is thus not supported.
+OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource Example_Basic.cg in resource group OgreOde or any other group. in ResourceGroupManager::openResource at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreResourceGroupManager.cpp (line 753)
+11:40:07: Parsing script apache_body.material
+11:40:07: Parsing script myExplosion.particle
+11:40:07: Parsing script ogreodedemos.particle
+11:40:07: Parsing script ogreodedemos.overlay
+11:40:07: Texture: target.png: Loading 1 faces(PF_A8R8G8B8,45x45x1) with 5 generated mipmaps from Image. Internal format is PF_A8R8G8B8,45x45x1.
+11:40:07: Finished parsing scripts for resource group OgreOde
+11:40:07: Texture: skybox_fr.jpg: Loading 1 faces(PF_R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,256x256x1.
+11:40:07: Texture: skybox_bk.jpg: Loading 1 faces(PF_R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,256x256x1.
+11:40:07: Texture: skybox_lf.jpg: Loading 1 faces(PF_R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,256x256x1.
+11:40:07: Texture: skybox_rt.jpg: Loading 1 faces(PF_R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,256x256x1.
+11:40:07: Texture: skybox_up.jpg: Loading 1 faces(PF_R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,256x256x1.
+11:40:07: Texture: skybox_dn.jpg: Loading 1 faces(PF_R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,256x256x1.
+11:40:07: Mesh: Loading racingcircuit.mesh.
+11:40:07: WARNING: racingcircuit.mesh is an older format ([MeshSerializer_v1.40]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+11:40:07: Texture: fence.tga: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+11:40:07: Texture: forest.tga: Loading 1 faces(PF_A8R8G8B8,512x128x1) with 5 generated mipmaps from Image. Internal format is PF_A8R8G8B8,512x128x1.
+11:40:07: Texture: grass.tga: Loading 1 faces(PF_R8G8B8,512x512x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+11:40:07: Texture: concrete.tga: Loading 1 faces(PF_R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,256x256x1.
+11:40:07: Texture: curb.tga: Loading 1 faces(PF_R8G8B8,128x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,128x256x1.
+11:40:07: Texture: tarmac2.tga: Loading 1 faces(PF_R8G8B8,512x512x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+11:40:07: Texture: sand.tga: Loading 1 faces(PF_R8G8B8,512x512x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+11:40:07: Texture: barrelside.tga: Loading 1 faces(PF_R8G8B8,128x128x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,128x128x1.
+11:40:07: Texture: tarmac2finish.tga: Loading 1 faces(PF_R8G8B8,512x512x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+11:40:07: Texture: tarmac2stage.tga: Loading 1 faces(PF_R8G8B8,512x512x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+11:40:07: Texture: devimg1.tga: Loading 1 faces(PF_R8G8B8,512x64x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x64x1.
+11:40:07: Texture: drpetter1.tga: Loading 1 faces(PF_R8G8B8,512x64x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x64x1.
+11:40:07: *** Initializing OIS ***
+11:40:07: Mesh: Loading scooby_body.mesh.
+11:40:07: WARNING: scooby_body.mesh is an older format ([MeshSerializer_v1.40]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+11:40:07: Texture: chasis.jpg: Loading 1 faces(PF_R8G8B8,512x512x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+11:40:07: Texture: ventanas.jpg: Loading 1 faces(PF_R8G8B8,512x512x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,512x512x1.
+11:40:07: Texture: chasis_a.jpg: Loading 1 faces(PF_R8G8B8,128x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,128x256x1.
+11:40:07: Mesh: Loading scooby_wheell.mesh.
+11:40:07: WARNING: scooby_wheell.mesh is an older format ([MeshSerializer_v1.40]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+11:40:07: Texture: ruedas.jpg: Loading 1 faces(PF_R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,256x256x1.
+11:40:07: Mesh: Loading scooby_wheelr.mesh.
+11:40:07: WARNING: scooby_wheelr.mesh is an older format ([MeshSerializer_v1.40]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+11:40:07: Texture: flare.png: Loading 1 faces(PF_R8G8B8,256x256x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,256x256x1.
+11:40:07: Texture: spot_shadow_fade.png: Loading 1 faces(PF_R8G8B8,128x128x1) with 5 generated mipmaps from Image. Internal format is PF_X8R8G8B8,128x128x1.
+11:40:07: Font BlueHighwayusing texture size 512x512
+11:40:07: Info: Freetype returned null for character 127 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 128 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 129 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 130 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 131 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 132 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 133 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 134 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 135 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 136 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 137 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 138 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 139 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 140 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 141 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 142 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 143 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 144 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 145 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 146 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 147 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 148 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 149 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 150 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 151 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 152 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 153 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 154 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 155 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 156 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 157 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 158 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 159 in font BlueHighway
+11:40:07: Info: Freetype returned null for character 160 in font BlueHighway
+11:40:07: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+11:41:50: DefaultWorkQueue('Root') shutting down on thread 0x18984d0.
+11:41:50: DefaultWorkQueue('Root')::WorkerFunc - thread 0x1b53840 stopped.
+11:41:50: DefaultWorkQueue('Root')::WorkerFunc - thread 0x19836d0 stopped.
+11:41:50: DefaultWorkQueue('Root')::WorkerFunc - thread 0x1b4f380 stopped.
+11:41:50: DefaultWorkQueue('Root')::WorkerFunc - thread 0x1b62030 stopped.
+11:41:50: Unregistering ResourceManager for type BspLevel
+11:41:50: *-*-* OGRE Shutdown
+11:41:50: Unregistering ResourceManager for type Compositor
+11:41:50: Unregistering ResourceManager for type Font
+11:41:50: Unregistering ResourceManager for type Skeleton
+11:41:50: Unregistering ResourceManager for type Mesh
+11:41:50: Unregistering ResourceManager for type HighLevelGpuProgram
+11:41:50: Uninstalling plugin: Cg Program Manager
+11:41:50: Plugin successfully uninstalled
+11:41:50: Unloading library /usr/lib64/Plugin_CgProgramManager
+11:41:50: Uninstalling plugin: BSP Scene Manager
+11:41:50: Plugin successfully uninstalled
+11:41:50: Unloading library /usr/lib64/Plugin_BSPSceneManager
+11:41:50: Uninstalling plugin: ParticleFX
+11:41:50: Plugin successfully uninstalled
+11:41:50: Unloading library /usr/lib64/Plugin_ParticleFX
+11:41:50: Uninstalling plugin: Octree & Terrain Scene Manager
+11:41:50: Plugin successfully uninstalled
+11:41:50: Unloading library /usr/lib64/Plugin_OctreeSceneManager
+11:41:50: Uninstalling plugin: GL RenderSystem
+11:41:50: Unregistering ResourceManager for type GpuProgram
+11:41:50: ******************************
+*** Stopping GLX Subsystem ***
+******************************
+11:41:50: Unregistering ResourceManager for type Texture
+11:41:50: Plugin successfully uninstalled
+11:41:50: Unloading library /usr/lib64/RenderSystem_GL
+11:41:50: Unregistering ResourceManager for type Material
