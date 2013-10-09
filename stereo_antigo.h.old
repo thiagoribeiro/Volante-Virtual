@@ -1,0 +1,28 @@
+/*
+ * stereo.h
+ *
+ *  Created on: Aug 19, 2011
+ *      Author: aluno
+ */
+
+#ifndef STEREO_H_
+#define STEREO_H_
+
+
+
+bool readPGM( const char *filename, unsigned char *im, int w, int h );
+bool writeDisparityPPM( const char *filename, const float *disp, int w, int h );
+bool disparity2image(IplImage *imagem, const float *disp, int w, int h );
+int has_option(int options, int opt);
+void init_options(int options);
+int deteriminarAlinhamento(int width, int height,IplImage* img1, IplImage* img2,int windowSize);
+int processaCUDA(int width, int height,unsigned char* imLeft,unsigned char* imRight, int options,int eye_distance);
+int processaCV();
+int processar(int width, int height,IplImage* img1, IplImage* img2, int options, int eye_distance);
+int rodaImagens(const char *filename1,  const char *filename2,int width, int height, int options, int eye_distance);
+int alimenta_threshold(CvCapture* capture1, CvCapture* capture2, int width, int height, int frames);
+int rodaCameras(int device1,  int device2,int width, int height, int options, int eye_distance);
+int rodaVideo(const char *filename1,int width, int height, int options, int eye_distance);
+int salvaImagens();
+int salvaDisparity(float* dispLeft, float* dispRight, int width, int height);
+#endif /* STEREO_H_ */

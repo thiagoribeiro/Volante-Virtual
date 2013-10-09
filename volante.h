@@ -1,4 +1,24 @@
 /*
+MyOpenCvObject ocv;
+MyOgreObject ogre;
+
+ocv.Init();
+ogre.Init();
+
+while (!myApp.quit)
+{
+    ocv.ProcessOneFrame();
+    ogre.PutTrackData(ocv.GetNewTrackResults());
+    ogre.Update();
+}
+
+ */
+
+
+
+
+
+/*
  * volante.h
  *
  *  Created on: May 11, 2011
@@ -12,412 +32,272 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fstream>
+
 #include <opencv/cv.h>
 #include <opencv/cvaux.h>
 #include <opencv/highgui.h>
+
+#include <pthread.h>
+
+
+/*NETWORKING*/
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <netdb.h>
+#include <stdlib.h>
+#include <cstring>
+#include <time.h>
+#include <set>
+/////////////////////
+
+
 
 extern "C" void stereoInit( int w, int h );
 extern "C" void stereoUpload( const unsigned char *left, const unsigned char *right );
 extern "C" void stereoProcess();
 extern "C" void stereoDownload( float *disparityLeft, float *disparityRight );
 
+
+#define NW_BUFLEN 512
+#define NW_NPACK 10
+#define NW_PORT 9930
+
+
+#define NW_READY 1
+#define NW_SEND_DATA 2
+struct comandos {
+	float left_right;
+	float accel_break;
+	int status;
+
+};
+
+class WorkerThread {
+public:
+	WorkerThread(std::string threadName) {
+		m_threadName = threadName;
+		m_error = 0;
+		m_running = false;
+	}
+
+	~WorkerThread() {
+		stop();
+	}
+
+	bool start() {
+		m_running = true;
+		m_error = pthread_create(&m_thread, NULL, _exec, (void *)this);
+		if( m_error != 0 ) return false;
+	}
+
+	void stop() {
+		m_running = false;
+	}
+
+	static void *_exec(void *instance) {
+
+		WorkerThread *pThis = reinterpret_cast<WorkerThread *>(instance);
+		bool exitRet=true;
+		while( (exitRet = pThis->run()) && pThis->isRunning() ) {
+			;
+		}
+
+		void *ret;
+		ret = (void *)(exitRet?0:-1);
+		pthread_exit(ret);
+
+	}
+
+	virtual bool run()=0;
+
+	__inline useconds_t isRunning() { return m_running; }
+
+private:
+
+	std::string m_threadName;
+	pthread_t m_thread;
+	int m_error;
+	bool m_running;
+
+};
+
+
+
+
+//sockaddr_in serverAddr;
+
+class Network {
+
+	public:
+	int init();
+	int send(comandos msg);
+	int free();
+	int sendMove(float x, float y);
+
+
+	private:
+	sockaddr_in clientAddr;//[10];
+	sockaddr clientAddrCast[10];
+	int socketId;
+	int qtde_clients;
+	unsigned int size;
+	struct sockaddr_in serverAddr;
+
+};
+
+
+class HandDetection : public WorkerThread {
+	private:
+	CvHaarClassifierCascade* cascade;
+	CvSize min_size;
+	double image_scale;
+	double haar_scale;
+	int min_neighbors;
+	int haar_flags;
+	IplImage *imagem,*disparidade;
+	CvMemStorage* storage;
+	CvSeq* faces;
+	double tild_hand; //inclinacao da mao
+	CvRect mao1, mao2;
+	int maos[100];
+	int idMaos;
+	float media1,media2, desvio_padrao1,desvio_padrao2;
+
+	int m_num;
+	int paused;
+
+	int detect_hands();
+	int remove_falses();
+	int filter_result();
+
+	public:
+	int find_hands(IplImage *imagem);
+	int translate(IplImage* disp);
+	int printHands(IplImage *img);
+	int init(char *cascade_file, int width, int height);
+	CvRect getHandRect(int hand);
+	int free();
+
+	int is_paused();
+	bool run();
+	HandDetection(int num) : WorkerThread("HandDetection")	{
+		m_num = num;
+	}
+	int pause();
+	int play();
+
+
+};
+
+class Hand2Move {
+	private:
+	IplImage *imagem, *disparidade, *background, *img_mao1, *img_mao2, *drawVolante, *rec_mao1, *rec_mao2;
+	int x,y;
+	int width,height;
+	HandDetection* hand;
+	double tilt, deep;
+	float tilt_angle;
+	CvRect mao1, mao2;
+	Network* net;
+
+
+	int hand_process();
+	int deep_detect();
+	int network_send();
+
+
+	public:
+	int running_hand_detect();
+	int hand_detect(IplImage *imagem);
+	int step(IplImage *imagem,IplImage *disparidade,IplImage *background);
+	int init(int width, int height);
+	int drawResult();
+	int free();
+
+	int printHands(IplImage *img);
+
+};
+/*
 class Origem {
 public:
 
-	virtual IplImage* getFrame(int dev) {
-	}
-	virtual int nextFrame() {
-	}
-	virtual int prepare() {
-	}
-	virtual void set_dimensao(int width, int height) {
-	}
-	virtual void free() {
-	}
+	virtual IplImage* getFrame(int dev);
+	virtual int nextFrame();
+	virtual int prepare();
+	virtual void set_dimensao(int width, int height);
+	virtual void free();
 };
-
-class Cameras : public Origem {
+*/
+//class Cameras : public Origem {
+class Cameras {
 private:
 	int width, height;
 	CvCapture *capture1, *capture2;
 	IplImage *frame1, *frame2, *rframe1, *rframe2;
 public:
 
-	void set_dimensao(int width, int height) {
-		this->width=width;
-		this->height=height;
-	}
-	void set_devices(int d1, int d2) {
-	    this->capture1 = cvCaptureFromCAM(d1);
-	    this->capture2 = cvCaptureFromCAM(d2);
+	void set_dimensao(int width, int height);
+	void set_devices(int d1, int d2);
 
-	}
-	int prepare() {
-		printf("oi\n\n");
-		cvSetCaptureProperty(this->capture1,CV_CAP_PROP_FRAME_WIDTH,this->width);
-		cvSetCaptureProperty(this->capture1,CV_CAP_PROP_FRAME_HEIGHT,this->height);
-		cvSetCaptureProperty(this->capture2,CV_CAP_PROP_FRAME_WIDTH,this->width);
-		cvSetCaptureProperty(this->capture2,CV_CAP_PROP_FRAME_HEIGHT,this->height);
-
-		this->rframe1 = cvCreateImage(cvSize(width,height),8,3);
-		this->rframe2 = cvCreateImage(cvSize(width,height),8,3);
-
-		return 1;
-
-	}
-	void free() {
-		cvReleaseImage(&this->rframe1);
-		cvReleaseImage(&this->rframe2);
-
-	}
-	IplImage* getFrame(int dev) {
-
-		if(dev==0) {
-			return this->rframe1;
-		}
-		else if(dev==1) {
-			return this->rframe2;
-		}
-		else {
-			return NULL;
-		}
-
-	}
-	int nextFrame() {
-		try {
-			if(cvGrabFrame(capture1) && cvGrabFrame(capture2)) {
-				this->frame1 = cvQueryFrame(capture1);
-				this->frame2 = cvQueryFrame(capture2);
-
-				cvConvertScale(this->frame1,this->rframe1);
-				cvConvertScale(this->frame2,this->rframe2);
-
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		catch(...) {
-			printf("Você conectou as cameras??");
-			return false;
-		}
-
-	}
+	int prepare();
+	void free();
+	IplImage* getFrame(int dev);
+	int nextFrame();
 
 };
 
 class BGsubstract {
 private:
-	IplImage *threshold,*filtered;
+	IplImage *threshold,*filtered, *step_filter;
+	int steps;
 
 public:
-	int init(IplImage *img) {
-		this->threshold = cvCloneImage(img);
-		this->filtered = cvCreateImage(cvSize(img->width,img->height),img->depth,img->nChannels);
-
-		return 1;
-	}
-	int step(IplImage *img) {
-		for(int j=2;j<this->threshold->nSize;j++) {
-			this->threshold->imageData[j] = ((this->threshold->imageData[j]*(j-1)+img->imageData[j])/2);
-		}
-
-		return 1;
-	}
-	IplImage* filter(IplImage* img) {
-		cvAbsDiff(img, this->threshold, this->filtered);
-		cvThreshold(this->filtered,this->filtered, 60, 255,CV_THRESH_BINARY);
-
-		return this->filtered;
-	}
-	int free() {
-		cvReleaseImage(&this->threshold);
-		cvReleaseImage(&this->filtered);
-
-		return 1;
-	}
+	int init(IplImage *img);
+	int step(IplImage *img);
+	IplImage* filter(IplImage* img);
+	int free();
 };
 
 class EyeEngine {
 private:
 	int eye_distance, width, height, run_mode;
 	float *disp_left, *disp_right;
-	IplImage *frameLeftRGB, *frameRightRGB, *frameLeftHSV, *frameRightHSV, *HSVleft_H, *HSVleft_S, *HSVleft_V, *HSVright_H, *HSVright_S, *HSVright_V, *RGBleft_R, *RGBleft_G, *RGBleft_B, *RGBright_R, *RGBright_G, *RGBright_B;
-	IplImage *tmp, *passo_left, *passo_right, *bg_disp_left, *bg_disp_right, *disparidade_left, *disparidade_right;
+	IplImage *gray, *frameLeftRGB, *frameRightRGB, *frameLeftHSV, *frameRightHSV, *HSVleft_H, *HSVleft_S, *HSVleft_V, *HSVright_H, *HSVright_S, *HSVright_V, *RGBleft_R, *RGBleft_G, *RGBleft_B, *RGBright_R, *RGBright_G, *RGBright_B;
+	IplImage *tmp3c, *tmp1c, *passo_left, *passo_right, *bg_disp_left, *bg_disp_right, *disparidade_left, *disparidade_right, *disparidade_avg, *bg_maskL, *bg_maskR, *bg_maskAVG;
 	BGsubstract  *bgsLeft, *bgsRight;
 	Cameras* pseye;
+	Hand2Move* h2m;
+
+	IplImage* hsv_mask;
+	CvScalar  hsv_min;
+	CvScalar  hsv_max;
+
 
 	//-------------------
 
-	int get_next_frame() {
+	int get_next_frame();
+	int estereo_preprocessamento1();
+	int estereo_posprocessamento1();
+	int estereo_cuda();
+	int estereo_opencv();
+	int unir_imagens();
+	bool _disparity2image(IplImage *imagem, const float *disp );
 
-		this->pseye->nextFrame();
-
-		this->frameLeftRGB = this->pseye->getFrame(0);
-		this->frameRightRGB = this->pseye->getFrame(1);
-
-
-
-		cvCvtPixToPlane(this->frameLeftRGB,this->RGBleft_R,this->RGBleft_G,this->RGBleft_B,0);
-		cvCvtPixToPlane(this->frameRightRGB,this->RGBright_R,this->RGBright_G,this->RGBright_B,0);
-
-		cvCvtColor(this->frameLeftRGB,this->frameLeftHSV,CV_RGB2HSV);
-		cvCvtColor(this->frameRightRGB,this->frameRightHSV,CV_RGB2HSV);
-
-		cvCvtPixToPlane(this->frameLeftHSV,this->HSVleft_H,this->HSVleft_S,this->HSVleft_V,0);
-		cvCvtPixToPlane(this->frameRightHSV,this->HSVright_H,this->HSVright_S,this->HSVright_V,0);
-
-		return 1;
-
-	}
-	int estereo_preprocessamento1() {
-		//CANAL VERMELHO
-		cvSmooth(this->RGBleft_R, this->passo_left, CV_GAUSSIAN, 7, 7 );
-		cvSmooth(this->RGBright_R, this->passo_right, CV_GAUSSIAN, 7, 7 );
-
-		return 1;
-	}
-	int estereo_posprocessamento1() {
-		return 1;
-	}
-	int estereo_cuda() {
-		stereoUpload((unsigned char*) this->passo_left->imageData,(unsigned char*) this->passo_right->imageData);
-	    stereoProcess();
-	    stereoDownload(this->disp_left,this->disp_right);
-
-		return 1;
-	}
-	int estereo_opencv() {
-		return 1;
-	}
-	int unir_imagens() {
-		return 1;
-	}
-	bool _disparity2image(IplImage *imagem, const float *disp )
-	{
-	    float dmin,dmax,d;
-	    int x,y;
-	    int w = this->width;
-	    int h = this->height;
-
-	    dmin = FLT_MAX;
-	    dmax = -FLT_MAX;
-	    for(y=0; y<h; y++) {
-	        for(x=0; x<w; x++) {
-	            d = disp[y*w+x];
-	            if(d>250)
-	                continue;
-	            if(d<dmin)
-	                dmin = d;
-	            if(d>dmax)
-	                dmax = d;
-	        }
-	    }
-
-	    for(y=0; y<h; y++) {
-	        for(x=0; x<w; x++) {
-	            unsigned char r,g,b;
-	            d = disp[y*w+x];
-	            if(d>250) {
-	                r = 0;
-	                g = 0;
-	                b = 0;
-	            } else {
-	                r = (unsigned char)(255*d/(dmax-dmin));
-	                g = b = r;
-	            }
-	            //out.write((char*)&r,1);
-	            //out.write((char*)&g,1);
-	            //out.write((char*)&b,1);
-	            //corrigir
-	            imagem->imageData[3*(y*w+x)]   = (char) r;
-	            imagem->imageData[3*(y*w+x)+1] = (char) g;
-	            imagem->imageData[3*(y*w+x)+2] = (char) b;
-
-	        }
-	    }
-	    return true;
-	}
-
-	int disparidade2imagem() {
-		this->_disparity2image(this->disparidade_left,this->disp_left);
-		this->_disparity2image(this->disparidade_right,this->disp_right);
-		return 1;
-	}
+	int disparidade2imagem();
 
 public:
-	void init() {
-		this->tmp = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,3);
+	void init();
+	int free();
+	void rodar();
 
-		this->passo_left = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->passo_right = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-
-		this->HSVleft_H = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->HSVleft_S = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->HSVleft_V = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->HSVright_H = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->HSVright_S = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->HSVright_V = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-
-		this->RGBleft_R = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->RGBleft_G = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->RGBleft_B = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->RGBright_R = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->RGBright_G = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->RGBright_B = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-
-		this->frameLeftHSV = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,3);
-		this->frameRightHSV = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,3);
-
-		this->bgsLeft=  new BGsubstract();
-		this->bgsRight= new BGsubstract();
-
-		this->pseye = new Cameras();
-		this->pseye->set_devices(0,1);
-		this->pseye->set_dimensao(this->width,this->height);
-		this->pseye->prepare();
-
-		this->frameLeftRGB=NULL;
-		this->frameRightRGB=NULL;
-
-		this->disp_left = new float[this->width*this->height];
-		this->disp_right = new float[this->width*this->height];
-
-		this->disparidade_left = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,3);
-		this->disparidade_right = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,3);
-
-		this->bg_disp_left = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-		this->bg_disp_right = cvCreateImage(cvSize(this->width,this->height),IPL_DEPTH_8U,1);
-
-		stereoInit(this->width,this->height);
-
-
-		cvNamedWindow("disp_left",0);
-		cvNamedWindow("disp_right",0);
-		cvNamedWindow("original_left",0);
-		cvNamedWindow("original_right",0);
-		cvNamedWindow("AVG",0);
-		cvNamedWindow("disparidade_mascara",0);
-	}
-	int free() {
-		cvReleaseImage(&this->tmp);
-		cvReleaseImage(&this->HSVleft_H);
-		cvReleaseImage(&this->HSVleft_S);
-		cvReleaseImage(&this->HSVleft_V);
-		cvReleaseImage(&this->HSVright_H);
-		cvReleaseImage(&this->HSVright_S);
-		cvReleaseImage(&this->HSVright_V);
-		cvReleaseImage(&this->RGBleft_R);
-		cvReleaseImage(&this->RGBleft_G);
-		cvReleaseImage(&this->RGBleft_B);
-		cvReleaseImage(&this->RGBright_R);
-		cvReleaseImage(&this->RGBright_G);
-		cvReleaseImage(&this->RGBright_B);
-		cvReleaseImage(&this->passo_left);
-		cvReleaseImage(&this->passo_right);
-		cvReleaseImage(&this->frameLeftHSV);
-		cvReleaseImage(&this->frameRightHSV);
-		cvReleaseImage(&this->bg_disp_left);
-		cvReleaseImage(&this->bg_disp_right);
-
-		this->pseye->free();
-		this->bgsLeft->free();
-		this->bgsRight->free();
-
-		//free(this->disp_left);
-		//free(this->disp_right);
-
-		cvReleaseImage(&this->disparidade_left);
-		cvReleaseImage(&this->disparidade_right);
-
-		return  1;
-	}
-	void rodar() {
-		int start_treino=100;
-		int treino_bg=start_treino;
-		if(this->run_mode==1) {
-
-			int key=0;
-
-			//REPETICAO A CADA FRAME
-			do {
-				this->get_next_frame();
-
-
-
-				this->estereo_preprocessamento1();
-
-				//TREINAR BG REMOVE
-				if(treino_bg>0) {
-					if(treino_bg==start_treino) {
-						this->bgsLeft->init(this->passo_left);
-						this->bgsRight->init(this->passo_right);
-					}
-					else {
-						this->bgsLeft->step(this->passo_left);
-						this->bgsRight->step(this->passo_right);
-					}
-					treino_bg--;
-
-				}
-				//BG REMOVE TREINADO
-				else {
-					cvShowImage("original_left",this->RGBleft_R);
-					cvShowImage("original_right",this->RGBright_R);
-					this->estereo_cuda();
-
-					this->disparidade2imagem();
-
-					cvCvtColor(this->disparidade_left,this->bg_disp_left,CV_RGB2GRAY);
-					cvCvtColor(this->disparidade_right,this->bg_disp_right,CV_RGB2GRAY);
-
-					cvShowImage("disp_left",this->bg_disp_left);
-					cvShowImage("disp_right",this->bg_disp_right);
-
-					this->bg_disp_left = this->bgsLeft->filter(this->bg_disp_left);
-					this->bg_disp_left = this->bgsRight->filter(this->bg_disp_right);
-					//cvShowImage("disp_left",this->bg_disp_left);
-					//cvShowImage("disp_right",this->bg_disp_right);
-
-					cvSetImageROI(this->bg_disp_left,cvRect(this->eye_distance,0,this->width,this->height));
-					cvCopy(this->bg_disp_left,this->bg_disp_left);
-					cvResetImageROI(this->bg_disp_left);
-					cvSetImageROI(this->bg_disp_right,cvRect(0,0,width-this->eye_distance,this->height));
-					cvCopy(this->bg_disp_right,this->bg_disp_right);
-					cvResetImageROI(this->bg_disp_right);
-					cvShowImage("AVG",this->bg_disp_left);
-					this->estereo_posprocessamento1();
-
-				}
-
-				key = cvWaitKey( 3 );
-
-			} while(key!='q');
-		}
-	}
-
-	int set_eye_distance(int ed) {
-		this->eye_distance = ed;
-
-		return 1;
-
-	}
-	int set_dimensao(int width, int height) {
-		this->width=width;
-		this->height=height;
-
-		return 1;
-	}
-	int set_run_mode(int modo) {
-		this->run_mode=modo;
-
-		return 1;
-	}
-	int salvar_disparidade() {
-
-		return 1;
-	}
+	int set_eye_distance(int ed);
+	int set_dimensao(int width, int height);
+	int set_run_mode(int modo);
+	int salvar_disparidade();
 };
 
 

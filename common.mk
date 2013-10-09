@@ -50,7 +50,7 @@ ROOTDIR    ?= ..
 ROOTBINDIR ?= $(ROOTDIR)/../bin
 BINDIR     ?= $(ROOTBINDIR)/$(OSLOWER)
 ROOTOBJDIR ?= obj
-LIBDIR     := $(ROOTDIR)/../lib
+LIBDIR     := $(ROOTDIR)/../lib 
 COMMONDIR  := $(ROOTDIR)/../common
 SHAREDDIR  := $(ROOTDIR)/../../shared/
 
@@ -61,7 +61,7 @@ CC         := gcc -fPIC
 LINK       := g++ -fPIC
 
 # Includes
-INCLUDES  += -I. -I$(CUDA_INSTALL_PATH)/include -I$(COMMONDIR)/inc -I$(SHAREDDIR)/inc
+INCLUDES  += -I. -I$(CUDA_INSTALL_PATH)/include -I$(COMMONDIR)/inc -I$(SHAREDDIR)/inc 
 
 # Warning flags
 CXXWARN_FLAGS := \
@@ -163,7 +163,7 @@ ifeq ($(dbg),1)
 	BINSUBDIR   := debug
 	LIBSUFFIX   := D
 else 
-	COMMONFLAGS += -O2 
+	COMMONFLAGS += -O2 -j3
 	BINSUBDIR   := release
 	LIBSUFFIX   := 
 	NVCCFLAGS   += --compiler-options -fno-strict-aliasing
@@ -310,7 +310,7 @@ ifeq ($(USECUSPARSE),1)
   LIB += -lcusparse
 endif
 
-LIB += -lcv -lcxcore -lhighgui -lGLU
+LIB += -lcv -lcxcore -lhighgui -lGLU 
 
 # Lib/exe configuration
 # Lib/exe configuration

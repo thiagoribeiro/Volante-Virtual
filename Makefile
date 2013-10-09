@@ -43,7 +43,7 @@ CUFILES		:= Stereo.cu
 
 # C/C++ source files (compiled with gcc / c++)
 CCFILES		:= \
-	stereo.cpp \
+	stereo.cpp volante.cpp \
 
 
 ################################################################################

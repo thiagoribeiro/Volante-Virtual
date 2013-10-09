@@ -16,7 +16,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -f" description="" id="ai3.config.cuda.116074978" name="Default" parent="ai3.config.cuda">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -f" description="" id="ai3.config.cuda.116074978" name="Default">
 					<folderInfo id="ai3.config.cuda.116074978." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.base.1965860550" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.base">
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.target.gnu.platform.base.35592687" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.gnu.platform.base"/>
@@ -42,7 +42,9 @@
 									<listOptionValue builtIn="false" value="GLU"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.1119974387" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="/home/aluno/NVIDIA_GPU_Computing_SDK/C/lib"/>
 									<listOptionValue builtIn="false" value="/usr/local/lib"/>
+									<listOptionValue builtIn="false" value="/home/aluno/NVIDIA_GPU_Computing_SDK/shared/lib"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.55460119" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -308,8 +310,8 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
-				<scannerConfigBuildInfo instanceId="ai3.config.cuda.116074978;ai3.config.cuda.116074978.;cdt.managedbuild.tool.gnu.c.compiler.base.1244977218;cdt.managedbuild.tool.gnu.c.compiler.input.812255178">
-					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.59330536;cdt.managedbuild.config.gnu.exe.release.59330536.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1385322607;cdt.managedbuild.tool.gnu.cpp.compiler.input.604465250">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
 							<openAction enabled="true" filePath=""/>
@@ -474,8 +476,8 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
-				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.59330536;cdt.managedbuild.config.gnu.exe.release.59330536.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1385322607;cdt.managedbuild.tool.gnu.cpp.compiler.input.604465250">
-					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+				<scannerConfigBuildInfo instanceId="ai3.config.cuda.116074978;ai3.config.cuda.116074978.;cdt.managedbuild.tool.gnu.c.compiler.base.1244977218;cdt.managedbuild.tool.gnu.c.compiler.input.812255178">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
 							<openAction enabled="true" filePath=""/>
@@ -806,7 +808,7 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
-				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.59330536;cdt.managedbuild.config.gnu.exe.release.59330536.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1596496649;cdt.managedbuild.tool.gnu.c.compiler.input.1913554221">
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.59330536;cdt.managedbuild.config.gnu.exe.release.59330536.;cdt.managedbuild.tool.gnu.c.compiler.base.1625396245;cdt.managedbuild.tool.gnu.c.compiler.input.491280558">
 					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
@@ -889,7 +891,7 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
-				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.59330536;cdt.managedbuild.config.gnu.exe.release.59330536.;cdt.managedbuild.tool.gnu.c.compiler.base.1625396245;cdt.managedbuild.tool.gnu.c.compiler.input.491280558">
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.59330536;cdt.managedbuild.config.gnu.exe.release.59330536.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1596496649;cdt.managedbuild.tool.gnu.c.compiler.input.1913554221">
 					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
@@ -976,6 +978,6 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="stereoteste.ai3.project.cuda.319413794" name="CUDA Project" projectType="ai3.project.cuda"/>
+		<project id="stereoteste.ai3.project.cuda.319413794" name="CUDA Project"/>
 	</storageModule>
 </cproject>

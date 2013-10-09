@@ -1,0 +1,38 @@
+16:44:40: Creating resource group General
+16:44:40: Creating resource group Internal
+16:44:40: Creating resource group Autodetect
+16:44:40: SceneManagerFactory for type 'DefaultSceneManager' registered.
+16:44:40: Registering ResourceManager for type Material
+16:44:40: Registering ResourceManager for type Mesh
+16:44:40: Registering ResourceManager for type Skeleton
+16:44:40: MovableObjectFactory for type 'ParticleSystem' registered.
+16:44:40: OverlayElementFactory for type Panel registered.
+16:44:40: OverlayElementFactory for type BorderPanel registered.
+16:44:40: OverlayElementFactory for type TextArea registered.
+16:44:40: Registering ResourceManager for type Font
+16:44:40: ArchiveFactory for archive type FileSystem registered.
+16:44:40: ArchiveFactory for archive type Zip registered.
+16:44:40: DDS codec registering
+16:44:40: FreeImage version: 3.10.0
+16:44:40: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+16:44:40: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,sgi,exr,j2k,j2c,jp2
+16:44:40: Registering ResourceManager for type HighLevelGpuProgram
+16:44:40: Registering ResourceManager for type Compositor
+16:44:40: MovableObjectFactory for type 'Entity' registered.
+16:44:40: MovableObjectFactory for type 'Light' registered.
+16:44:40: MovableObjectFactory for type 'BillboardSet' registered.
+16:44:40: MovableObjectFactory for type 'ManualObject' registered.
+16:44:40: MovableObjectFactory for type 'BillboardChain' registered.
+16:44:40: MovableObjectFactory for type 'RibbonTrail' registered.
+16:44:40: OGRE EXCEPTION(6:FileNotFoundException): 'plugins.cfg' file not found! in ConfigFile::load at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreConfigFile.cpp (line 83)
+16:44:40: plugins.cfg not found, automatic plugin loading disabled.
+16:44:40: *-*-* OGRE Initialising
+16:44:40: *-*-* Version 1.7.3 (Cthugha)
+16:44:40: OGRE EXCEPTION(6:FileNotFoundException): 'resources.cfg' file not found! in ConfigFile::load at /home/aluno/Downloads/ogre_src_v1-7-3/OgreMain/src/OgreConfigFile.cpp (line 83)
+16:44:40: *-*-* OGRE Shutdown
+16:44:40: Unregistering ResourceManager for type Compositor
+16:44:40: Unregistering ResourceManager for type Font
+16:44:40: Unregistering ResourceManager for type Skeleton
+16:44:40: Unregistering ResourceManager for type Mesh
+16:44:40: Unregistering ResourceManager for type HighLevelGpuProgram
+16:44:40: Unregistering ResourceManager for type Material
